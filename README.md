@@ -1,8 +1,8 @@
 # app-template
 
 Template for a new lernapps.net learning app: a minimal static, frontend-only app with a license, the
-header and footer of lernapps.net (the shared chrome `@lernapps/site` from
-[lernapps.github.io](https://github.com/lernapps/lernapps.github.io/tree/main/chrome)) and the same build,
+header and footer of lernapps.net (the shared site frame `@lernapps/site` from
+[lernapps.github.io](https://github.com/lernapps/lernapps.github.io/tree/main/site-frame)) and the same build,
 check and deploy as every other site (the site actions in [tooling](https://github.com/lernapps/tooling)).
 Once it runs, the app is listed in the app overview: one entry in
 [lernapps/apps](https://github.com/lernapps/apps) (<https://lernapps.net/apps/eintragen/>).
