@@ -1,0 +1,89 @@
+{
+  "$schema": "https://lernapps.net/tooling/schemas/quiz.v1.schema.json",
+  "title": "Quiz: Brüche",
+  "intro": "Sechs Fragen zu Brüchen für die Klassen 5 und 6. Du übst Kürzen, Vergleichen und Rechnen mit Brüchen.",
+  "questions": [
+    {
+      "id": "kuerzen",
+      "type": "single-choice",
+      "text": "Welcher Bruch ist gleich groß wie 6/8 und vollständig gekürzt?",
+      "options": [
+        { "text": "3/4", "correct": true, "feedback": "Genau: Du hast Zähler und Nenner durch 2 geteilt." },
+        {
+          "text": "6/4",
+          "correct": false,
+          "feedback": "Du hast nur den Nenner geteilt. Beim Kürzen teilst du Zähler und Nenner durch dieselbe Zahl."
+        },
+        {
+          "text": "3/8",
+          "correct": false,
+          "feedback": "Du hast nur den Zähler geteilt. Teile auch den Nenner durch 2."
+        },
+        {
+          "text": "12/16",
+          "correct": false,
+          "feedback": "12/16 ist gleich groß, aber erweitert, nicht gekürzt: Du hast mit 2 malgenommen."
+        }
+      ],
+      "explanation": "Zähler und Nenner von 6/8 lassen sich durch 2 teilen: 6 : 2 = 3 und 8 : 2 = 4. 3 und 4 haben keinen gemeinsamen Teiler mehr, also ist 3/4 vollständig gekürzt."
+    },
+    {
+      "id": "ein-halb",
+      "type": "multiple-choice",
+      "text": "Welche Brüche sind genauso groß wie 1/2? Wähle alle passenden.",
+      "options": [
+        { "text": "2/4", "correct": true, "feedback": "Richtig: 2/4 ist 1/2, erweitert mit 2." },
+        { "text": "5/10", "correct": true, "feedback": "Richtig: 5/10 ist 1/2, erweitert mit 5." },
+        {
+          "text": "2/3",
+          "correct": false,
+          "feedback": "2/3 ist mehr als die Hälfte: Der Zähler ist mehr als halb so groß wie der Nenner."
+        },
+        {
+          "text": "3/5",
+          "correct": false,
+          "feedback": "Die Hälfte von 5 ist 2,5, nicht 3. Also ist 3/5 etwas mehr als 1/2."
+        }
+      ],
+      "explanation": "Ein Bruch ist so groß wie 1/2, wenn der Zähler genau die Hälfte des Nenners ist. Das gilt für 2/4 und 5/10."
+    },
+    {
+      "id": "groesserer-nenner",
+      "type": "true-false",
+      "text": "Wenn der Zähler gleich bleibt, wird ein Bruch größer, je größer sein Nenner ist.",
+      "answer": false,
+      "feedback": {
+        "true": "Das ist ein häufiger Irrtum. Denk an eine Pizza: Ein Achtel ist kleiner als ein Viertel.",
+        "false": "Genau: Je mehr Teile, desto kleiner ist jedes Teil."
+      },
+      "explanation": "Der Nenner sagt, in wie viele Teile das Ganze geteilt ist. Mehr Teile bedeuten kleinere Teile: 1/8 ist kleiner als 1/4."
+    },
+    {
+      "id": "pizza",
+      "type": "number",
+      "text": "Eine Pizza wiegt 600 g. Wie viel Gramm sind 2/3 davon?",
+      "answer": 400,
+      "tolerance": 0,
+      "unit": "g",
+      "explanation": "Ein Drittel von 600 g sind 600 g : 3 = 200 g. Zwei Drittel sind doppelt so viel: 400 g."
+    },
+    {
+      "id": "der-groesse-nach",
+      "type": "ordering",
+      "text": "Ordne die Brüche der Größe nach, vom kleinsten zum größten.",
+      "items": ["1/4", "1/3", "1/2", "3/4"],
+      "explanation": "Als Dezimalzahlen: 1/4 = 0,25, 1/3 ≈ 0,33, 1/2 = 0,5 und 3/4 = 0,75."
+    },
+    {
+      "id": "dezimalzahlen",
+      "type": "matching",
+      "text": "Welche Dezimalzahl gehört zu welchem Bruch?",
+      "pairs": [
+        { "left": "1/2", "right": "0,5" },
+        { "left": "1/4", "right": "0,25" },
+        { "left": "1/5", "right": "0,2" }
+      ],
+      "explanation": "Teile den Zähler durch den Nenner: 1 : 2 = 0,5, 1 : 4 = 0,25 und 1 : 5 = 0,2."
+    }
+  ]
+}
