@@ -1,3 +1,4 @@
-import { quiz } from "@lernapps/tooling/quiz/preset";
+import { lernapps } from "@lernapps/tooling/preset";
+import { quiz } from "@lernapps/app-templates/quiz/plugin";
 
-export default quiz();
+export default lernapps({ plugins: [quiz()] });

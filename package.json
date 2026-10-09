@@ -1,0 +1,65 @@
+{
+  "name": "@lernapps/app-templates",
+  "version": "0.0.0",
+  "description": "The templates of the archetypes of lernapps.net apps, and the runtime of each archetype that apps depend on (the quiz: engine, build step, styles, end-to-end tests, the schema of the question bank)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lernapps/app-templates.git"
+  },
+  "files": [
+    "dist",
+    "runtime"
+  ],
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./quiz": {
+      "types": "./runtime/quiz/engine.ts",
+      "default": "./dist/quiz.mjs"
+    },
+    "./quiz/plugin": {
+      "types": "./runtime/quiz/plugin.ts",
+      "default": "./dist/quiz-plugin.mjs"
+    },
+    "./quiz/e2e": {
+      "types": "./runtime/quiz/e2e.ts",
+      "default": "./dist/quiz-e2e.mjs"
+    },
+    "./quiz/style.css": "./runtime/quiz/quiz.css",
+    "./quiz/quiz.v1.schema.json": "./runtime/quiz/quiz.v1.schema.json"
+  },
+  "scripts": {
+    "prepare": "vp pack",
+    "test": "vp test"
+  },
+  "dependencies": {
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "vite-plus": "1.0.0"
+  },
+  "peerDependencies": {
+    "@lernapps/tooling": "*",
+    "playwright": "*",
+    "vite-plus": "1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@lernapps/tooling": {
+      "optional": true
+    },
+    "playwright": {
+      "optional": true
+    },
+    "vite-plus": {
+      "optional": true
+    }
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.0.0"
+  },
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
+  }
+}

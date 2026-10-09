@@ -1,89 +1,242 @@
 {
-  "$schema": "https://lernapps.net/tooling/schemas/quiz.v1.schema.json",
-  "title": "Quiz: Brüche",
-  "intro": "Sechs Fragen zu Brüchen für die Klassen 5 und 6. Du übst Kürzen, Vergleichen und Rechnen mit Brüchen.",
+  "$schema": "../node_modules/@lernapps/app-templates/runtime/quiz/quiz.v1.schema.json",
+  "title": "Naturwunder der Welt",
+  "intro": "Acht Fragen zu Bergen, Flüssen, Wasserfällen und Inseln auf der ganzen Erde. Für die Klassen 5 bis 7.",
   "questions": [
     {
-      "id": "kuerzen",
+      "id": "grand-canyon",
       "type": "single-choice",
-      "text": "Welcher Bruch ist gleich groß wie 6/8 und vollständig gekürzt?",
+      "text": "Welcher Fluss hat den Grand Canyon in den USA geformt?",
       "options": [
-        { "text": "3/4", "correct": true, "feedback": "Genau: Du hast Zähler und Nenner durch 2 geteilt." },
         {
-          "text": "6/4",
-          "correct": false,
-          "feedback": "Du hast nur den Nenner geteilt. Beim Kürzen teilst du Zähler und Nenner durch dieselbe Zahl."
+          "text": "Colorado",
+          "correct": true,
+          "info": "Der Colorado ist der größte Fluss im Südwesten Nordamerikas. Er ist gut 2300 km lang.",
+          "link": {
+            "title": "Colorado River (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Colorado_River"
+          }
         },
         {
-          "text": "3/8",
+          "text": "Nil",
           "correct": false,
-          "feedback": "Du hast nur den Zähler geteilt. Teile auch den Nenner durch 2."
+          "info": "Der Nil fließt durch mehrere Länder Afrikas und mündet in Ägypten ins Mittelmeer. Mit rund 6650 km gilt er als längster Fluss der Erde.",
+          "link": {
+            "title": "Nil (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Nil"
+          }
         },
         {
-          "text": "12/16",
+          "text": "Amazonas",
           "correct": false,
-          "feedback": "12/16 ist gleich groß, aber erweitert, nicht gekürzt: Du hast mit 2 malgenommen."
+          "info": "Der Amazonas fließt durch den Norden Südamerikas bis in den Atlantik. Kein anderer Fluss der Erde führt so viel Wasser.",
+          "link": {
+            "title": "Amazonas (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Amazonas"
+          }
+        },
+        {
+          "text": "Sambesi",
+          "correct": false,
+          "info": "Der Sambesi ist ein Fluss in Afrika. An den Victoriafällen stürzt er als sehr breiter Wasserfall in die Tiefe."
         }
       ],
-      "explanation": "Zähler und Nenner von 6/8 lassen sich durch 2 teilen: 6 : 2 = 3 und 8 : 2 = 4. 3 und 4 haben keinen gemeinsamen Teiler mehr, also ist 3/4 vollständig gekürzt."
+      "explanation": "Der Grand Canyon ist eine steile Schlucht im US-Bundesstaat Arizona, etwa 450 km lang. Der Colorado hat sie über Millionen von Jahren in das Gestein gegraben.",
+      "links": [
+        {
+          "title": "Grand Canyon (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Grand_Canyon"
+        }
+      ]
     },
     {
-      "id": "ein-halb",
+      "id": "weltnaturerbe",
       "type": "multiple-choice",
-      "text": "Welche Brüche sind genauso groß wie 1/2? Wähle alle passenden.",
+      "text": "Welche dieser Naturwunder hat die UNESCO zum Weltnaturerbe erklärt? Wähle alle passenden.",
       "options": [
-        { "text": "2/4", "correct": true, "feedback": "Richtig: 2/4 ist 1/2, erweitert mit 2." },
-        { "text": "5/10", "correct": true, "feedback": "Richtig: 5/10 ist 1/2, erweitert mit 5." },
         {
-          "text": "2/3",
-          "correct": false,
-          "feedback": "2/3 ist mehr als die Hälfte: Der Zähler ist mehr als halb so groß wie der Nenner."
+          "text": "Halong-Bucht",
+          "correct": true,
+          "info": "Die Halong-Bucht liegt im Norden Vietnams. Fast 2000 Felsen aus Kalkstein ragen dort aus dem Meer. Seit 1994 ist sie Weltnaturerbe.",
+          "link": {
+            "title": "Halong-Bucht (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Halong-Bucht"
+          }
         },
         {
-          "text": "3/5",
+          "text": "Kilimandscharo",
+          "correct": true,
+          "info": "Der Kilimandscharo ist eine Gruppe von Bergen in Tansania. Sein höchster Gipfel, der Kibo, ist der höchste Berg Afrikas. Seit 1987 ist die Landschaft Weltnaturerbe.",
+          "link": {
+            "title": "Kilimandscharo (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Kilimandscharo"
+          }
+        },
+        {
+          "text": "Victoriafälle",
+          "correct": true,
+          "info": "Die Victoriafälle sind ein sehr breiter Wasserfall des Flusses Sambesi in Afrika. Seit 1989 gehören sie zum Weltnaturerbe.",
+          "link": {
+            "title": "Victoriafälle (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Victoriaf%C3%A4lle"
+          }
+        },
+        {
+          "text": "Mont Blanc",
           "correct": false,
-          "feedback": "Die Hälfte von 5 ist 2,5, nicht 3. Also ist 3/5 etwas mehr als 1/2."
+          "info": "Der Mont Blanc an der Grenze zwischen Frankreich und Italien ist der höchste Berg der Alpen. Seit dem Jahr 2000 steht er nur auf der Liste der Vorschläge für das Welterbe.",
+          "link": {
+            "title": "Mont Blanc (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Mont_Blanc"
+          }
         }
       ],
-      "explanation": "Ein Bruch ist so groß wie 1/2, wenn der Zähler genau die Hälfte des Nenners ist. Das gilt für 2/4 und 5/10."
+      "explanation": "Die UNESCO schützt besondere Landschaften als Weltnaturerbe. Die Halong-Bucht, der Kilimandscharo und die Victoriafälle gehören dazu. Der Mont Blanc ist bisher nur vorgeschlagen.",
+      "links": [
+        {
+          "title": "Halong-Bucht (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Halong-Bucht"
+        },
+        {
+          "title": "Kilimandscharo (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Kilimandscharo"
+        }
+      ]
     },
     {
-      "id": "groesserer-nenner",
+      "id": "totes-meer",
       "type": "true-false",
-      "text": "Wenn der Zähler gleich bleibt, wird ein Bruch größer, je größer sein Nenner ist.",
-      "answer": false,
-      "feedback": {
-        "true": "Das ist ein häufiger Irrtum. Denk an eine Pizza: Ein Achtel ist kleiner als ein Viertel.",
-        "false": "Genau: Je mehr Teile, desto kleiner ist jedes Teil."
-      },
-      "explanation": "Der Nenner sagt, in wie viele Teile das Ganze geteilt ist. Mehr Teile bedeuten kleinere Teile: 1/8 ist kleiner als 1/4."
+      "text": "Das Tote Meer liegt tiefer als der Meeresspiegel.",
+      "answer": true,
+      "explanation": "Das Tote Meer liegt mehr als 440 m unter dem Meeresspiegel. Kein anderer See der Erde liegt so tief. Sein Wasser ist sehr salzig, und der Fluss Jordan fließt hinein.",
+      "links": [
+        {
+          "title": "Totes Meer (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Totes_Meer"
+        }
+      ]
     },
     {
-      "id": "pizza",
+      "id": "everest-hoehe",
       "type": "number",
-      "text": "Eine Pizza wiegt 600 g. Wie viel Gramm sind 2/3 davon?",
-      "answer": 400,
-      "tolerance": 0,
-      "unit": "g",
-      "explanation": "Ein Drittel von 600 g sind 600 g : 3 = 200 g. Zwei Drittel sind doppelt so viel: 400 g."
+      "text": "Wie hoch ist der Mount Everest? Gib die Höhe in Metern an. Bis zu 100 m daneben zählt noch als richtig.",
+      "answer": 8848,
+      "tolerance": 100,
+      "unit": "m",
+      "explanation": "Der Mount Everest im Himalaya ist mit etwas mehr als 8848 m der höchste Berg der Erde. Er liegt an der Grenze zwischen Nepal und China. Als Erste standen Edmund Hillary und Tenzing Norgay im Jahr 1953 auf seinem Gipfel.",
+      "links": [
+        {
+          "title": "Mount Everest (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Mount_Everest"
+        }
+      ]
     },
     {
-      "id": "der-groesse-nach",
+      "id": "berge-ordnen",
       "type": "ordering",
-      "text": "Ordne die Brüche der Größe nach, vom kleinsten zum größten.",
-      "items": ["1/4", "1/3", "1/2", "3/4"],
-      "explanation": "Als Dezimalzahlen: 1/4 = 0,25, 1/3 ≈ 0,33, 1/2 = 0,5 und 3/4 = 0,75."
+      "text": "Ordne die Berge nach ihrer Höhe, vom niedrigsten zum höchsten.",
+      "items": ["Zugspitze", "Mont Blanc", "Kilimandscharo", "Mount Everest"],
+      "explanation": "Die Zugspitze ist mit 2962 m der höchste Berg Deutschlands. Der Mont Blanc ist mit etwa 4807 m der höchste Berg der Alpen. Der Kibo am Kilimandscharo ist mit 5895 m der höchste Berg Afrikas, und der Mount Everest ist mit über 8848 m der höchste Berg der Erde.",
+      "links": [
+        {
+          "title": "Zugspitze (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Zugspitze"
+        },
+        {
+          "title": "Mont Blanc (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Mont_Blanc"
+        }
+      ]
     },
     {
-      "id": "dezimalzahlen",
+      "id": "wasserfaelle-laender",
       "type": "matching",
-      "text": "Welche Dezimalzahl gehört zu welchem Bruch?",
+      "text": "Zwischen welchen Ländern liegen diese Wasserfälle?",
       "pairs": [
-        { "left": "1/2", "right": "0,5" },
-        { "left": "1/4", "right": "0,25" },
-        { "left": "1/5", "right": "0,2" }
+        {
+          "left": "Niagarafälle",
+          "right": "USA und Kanada"
+        },
+        {
+          "left": "Victoriafälle",
+          "right": "Simbabwe und Sambia"
+        },
+        {
+          "left": "Iguazú-Wasserfälle",
+          "right": "Brasilien und Argentinien"
+        }
       ],
-      "explanation": "Teile den Zähler durch den Nenner: 1 : 2 = 0,5, 1 : 4 = 0,25 und 1 : 5 = 0,2."
+      "explanation": "Alle drei Wasserfälle liegen an einer Grenze: die Niagarafälle zwischen dem US-Bundesstaat New York und der kanadischen Provinz Ontario, die Victoriafälle zwischen Simbabwe und Sambia, die Iguazú-Wasserfälle zwischen Brasilien und Argentinien.",
+      "links": [
+        {
+          "title": "Niagarafälle (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Niagaraf%C3%A4lle"
+        },
+        {
+          "title": "Iguazú-Wasserfälle (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Iguaz%C3%BA-Wasserf%C3%A4lle"
+        }
+      ]
+    },
+    {
+      "id": "galapagos",
+      "type": "single-choice",
+      "text": "Welche Inseln liegen im Pazifik am Äquator, etwa 1000 km vor der Küste Südamerikas?",
+      "options": [
+        {
+          "text": "Galapagosinseln",
+          "correct": true,
+          "info": "Die Galapagosinseln gehören zu Ecuador. Ihr Name kommt von Riesenschildkröten, deren Panzer bei manchen Arten wie ein Sattel aussieht.",
+          "link": {
+            "title": "Galapagosinseln (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Galapagosinseln"
+          }
+        },
+        {
+          "text": "Halong-Bucht",
+          "correct": false,
+          "info": "Die Halong-Bucht liegt im Norden Vietnams, also in Asien. Dort ragen fast 2000 Felsen aus Kalkstein aus dem Meer.",
+          "link": {
+            "title": "Halong-Bucht (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Halong-Bucht"
+          }
+        },
+        {
+          "text": "Great Barrier Reef",
+          "correct": false,
+          "info": "Das Great Barrier Reef liegt vor der Nordostküste Australiens. Es besteht aus über 2900 einzelnen Korallenriffen und ist mehr als 2300 km lang.",
+          "link": {
+            "title": "Great Barrier Reef (Wikipedia)",
+            "url": "https://de.wikipedia.org/wiki/Great_Barrier_Reef"
+          }
+        }
+      ],
+      "explanation": "Die Galapagosinseln liegen am Äquator, etwa 1000 km westlich der Küste Ecuadors. Ihre Pflanzen und Tiere sind einmalig. Deshalb steht fast die ganze Inselgruppe unter strengem Naturschutz.",
+      "links": [
+        {
+          "title": "Galapagosinseln (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Galapagosinseln"
+        }
+      ]
+    },
+    {
+      "id": "uluru",
+      "type": "true-false",
+      "text": "Den Uluru in Australien darf man heute besteigen.",
+      "answer": false,
+      "explanation": "Der Uluru ist ein Berg in der Wüste Zentralaustraliens, etwa 350 m höher als das Land um ihn herum. Für die Anangu, die Aborigines dort, ist er heilig. Seit Oktober 2019 ist es verboten, ihn zu besteigen.",
+      "links": [
+        {
+          "title": "Uluru (Wikipedia)",
+          "url": "https://de.wikipedia.org/wiki/Uluru"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Wikipedia, die freie Enzyklopädie: die oben verlinkten Artikel, abgerufen im Oktober 2026",
+      "url": "https://de.wikipedia.org/wiki/Wikipedia:Hauptseite"
     }
   ]
 }

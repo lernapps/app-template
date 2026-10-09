@@ -1,0 +1,252 @@
+/* The look of a quiz (@lernapps/app-templates/quiz/style.css): plain, readable at 360 px, contrast for WCAG 2.1 AA. */
+:root {
+  --quiz-text: #1a1a1a;
+  --quiz-muted: #4a4a4a;
+  --quiz-background: #ffffff;
+  --quiz-surface: #f4f5f7;
+  --quiz-border: #8a8f98;
+  --quiz-accent: #1d4ed8;
+  --quiz-on-accent: #ffffff;
+  --quiz-right: #14532d;
+  --quiz-right-background: #dcfce7;
+  --quiz-wrong: #7f1d1d;
+  --quiz-wrong-background: #fee2e2;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--quiz-background);
+  color: var(--quiz-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.quiz,
+.quiz-footer {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow-wrap: break-word;
+}
+
+.quiz h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.quiz a {
+  color: var(--quiz-accent);
+}
+
+.quiz-questions,
+.quiz-solutions ol {
+  padding-left: 1.5rem;
+}
+
+.quiz-running .quiz-questions {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quiz-question {
+  margin: 0 0 1.5rem;
+}
+
+.quiz-question fieldset {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--quiz-border);
+  border-radius: 0.5rem;
+  background: var(--quiz-surface);
+  min-width: 0;
+}
+
+.quiz-question legend {
+  padding: 0 0.25rem;
+  font-weight: 600;
+}
+
+.quiz-option {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.375rem 0;
+}
+
+.quiz-option input {
+  margin-top: 0.3rem;
+  flex: none;
+}
+
+.quiz-number input,
+.quiz-pairs select {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--quiz-border);
+  border-radius: 0.25rem;
+  background: var(--quiz-background);
+  color: var(--quiz-text);
+  max-width: 100%;
+}
+
+.quiz-number input {
+  width: 8rem;
+}
+
+.quiz-pairs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quiz-pairs li {
+  padding: 0.375rem 0;
+}
+
+.quiz-pairs label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.quiz-hint {
+  margin: 0 0 0.5rem;
+  color: var(--quiz-muted);
+}
+
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quiz button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--quiz-accent);
+  border-radius: 0.375rem;
+  background: var(--quiz-accent);
+  color: var(--quiz-on-accent);
+  cursor: pointer;
+}
+
+.quiz button:focus-visible,
+.quiz a:focus-visible,
+.quiz input:focus-visible,
+.quiz select:focus-visible {
+  outline: 3px solid var(--quiz-text);
+  outline-offset: 2px;
+}
+
+.quiz-feedback:not(:empty) {
+  margin: 0.75rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--quiz-border);
+}
+
+.quiz-feedback p {
+  margin: 0.25rem 0;
+}
+
+.quiz-right {
+  background: var(--quiz-right-background);
+  color: var(--quiz-right);
+}
+
+.quiz-wrong {
+  background: var(--quiz-wrong-background);
+  color: var(--quiz-wrong);
+}
+
+.quiz-progress {
+  color: var(--quiz-muted);
+}
+
+.quiz-solution h3 {
+  font-size: 1.0625rem;
+}
+
+.quiz-footer {
+  color: var(--quiz-muted);
+  border-top: 1px solid var(--quiz-border);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.quiz-infos,
+.quiz-links {
+  padding-left: 0;
+  list-style: none;
+}
+
+.quiz-info {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--quiz-border);
+  border-left-width: 4px;
+  border-radius: 0.375rem;
+}
+
+.quiz-info p {
+  margin: 0.25rem 0;
+}
+
+.quiz-info-right {
+  border-left-color: var(--quiz-right);
+}
+
+.quiz-info-chosen:not(.quiz-info-right) {
+  border-left-color: var(--quiz-wrong);
+}
+
+.quiz-badge {
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.quiz-badge-right {
+  background: var(--quiz-right-background);
+  color: var(--quiz-right);
+}
+
+.quiz-badge-chosen {
+  background: var(--quiz-surface);
+  color: var(--quiz-text);
+  border: 1px solid var(--quiz-border);
+}
+
+.quiz-links li {
+  margin: 0.25rem 0;
+}
+
+.quiz-more {
+  margin-bottom: 0;
+  font-weight: 600;
+}

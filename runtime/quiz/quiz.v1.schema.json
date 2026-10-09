@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lernapps.net/tooling/schemas/quiz.v1.schema.json",
+  "title": "Question bank of a lernapps quiz",
+  "description": "The questions of a quiz built from the archetype quiz (runtime @lernapps/app-templates), in src/quiz.json: a quiz about things to know. Each option carries short background knowledge, each question links to further reading. The build validates the bank against this schema and fails with a message naming each problem. Every text is for learners: German, plain language, in your own words.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "intro", "questions"],
+  "properties": {
+    "$schema": {
+      "description": "This schema, for the editor.",
+      "type": "string"
+    },
+    "title": {
+      "description": "The title of the quiz: the page's title and its h1 heading.",
+      "$ref": "#/$defs/text"
+    },
+    "intro": {
+      "description": "One or two sentences under the heading: what the quiz is about and whom it is for.",
+      "$ref": "#/$defs/text"
+    },
+    "rememberLastResult": {
+      "description": "Keep the last result on the learner's device (localStorage, through the preset's storage) and show it at the end. Off by default: then the quiz stores nothing.",
+      "type": "boolean",
+      "default": false
+    },
+    "questions": {
+      "description": "The questions, in the order of the page without JavaScript. With JavaScript, the order is shuffled by the seed in the address (?seed=<number>).",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/question"
+      }
+    },
+    "sources": {
+      "description": "Where the facts of the quiz come from, listed at the end of the page.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "type", "text", "explanation", "links"],
+      "properties": {
+        "id": {
+          "description": "Stable name of the question, used in its address (#frage-<id>): lower-case letters, digits and hyphens. Keep it when the text changes, so links to the question keep working.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "type": {
+          "description": "The kind of question.",
+          "enum": ["single-choice", "multiple-choice", "true-false", "number", "ordering", "matching"]
+        },
+        "text": {
+          "description": "The question, complete in itself.",
+          "$ref": "#/$defs/text"
+        },
+        "explanation": {
+          "description": "Why the right answer is right, in one to three sentences. For number, ordering and matching questions also the background knowledge, as their options carry none.",
+          "$ref": "#/$defs/text"
+        },
+        "links": {
+          "description": "Further reading on the question, at least one link, e.g. to the article in the German Wikipedia.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/link"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "single-choice"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/choice"
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "multiple-choice"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/choice"
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "true-false"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/trueFalse"
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "number"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/number"
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "ordering"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/ordering"
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "matching"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "$ref": "#/$defs/matching"
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "choice": {
+      "type": "object",
+      "description": "Single choice: exactly one option is correct. Multiple choice: at least one option is correct, and the learner selects every correct one.",
+      "required": ["options"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text", "correct", "info"],
+            "properties": {
+              "text": {
+                "description": "The option as the learner reads it.",
+                "$ref": "#/$defs/text"
+              },
+              "correct": {
+                "description": "Whether this option is correct.",
+                "type": "boolean"
+              },
+              "info": {
+                "description": "One to three sentences of background on this option itself, true whether or not it is the right answer, e.g. \"Der Uluru ist ein Inselberg in der Wüste Zentralaustraliens ...\". Shown for every option after the answer.",
+                "$ref": "#/$defs/text"
+              },
+              "link": {
+                "description": "Further reading on this option.",
+                "$ref": "#/$defs/link"
+              }
+            }
+          }
+        }
+      }
+    },
+    "trueFalse": {
+      "type": "object",
+      "description": "A statement the learner judges as true or false; the background goes into the explanation.",
+      "required": ["answer"],
+      "properties": {
+        "answer": {
+          "description": "Whether the statement is true.",
+          "type": "boolean"
+        }
+      }
+    },
+    "number": {
+      "type": "object",
+      "description": "The learner types a number; it counts when it is within the tolerance of the answer. A comma or a point both work as the decimal sign. The background goes into the explanation.",
+      "required": ["answer", "tolerance"],
+      "properties": {
+        "answer": {
+          "description": "The right number.",
+          "type": "number"
+        },
+        "tolerance": {
+          "description": "How far the learner's number may be from the answer and still count; 0 for an exact answer. Match it to the rounding the question asks for.",
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "description": "The unit, shown next to the input, e.g. \"cm\"; the learner does not type it.",
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "ordering": {
+      "type": "object",
+      "description": "The learner puts the items in order, e.g. by height. Write them in the right order: the page shows them mixed. The background goes into the explanation.",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        }
+      }
+    },
+    "matching": {
+      "type": "object",
+      "description": "The learner matches each left entry with its right entry. Write the pairs as they belong together: the page shows the right entries mixed. The background goes into the explanation.",
+      "required": ["pairs"],
+      "properties": {
+        "pairs": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["left", "right"],
+            "properties": {
+              "left": {
+                "$ref": "#/$defs/text"
+              },
+              "right": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "url"],
+      "properties": {
+        "title": {
+          "description": "The link's text: what the learner finds there, e.g. \"Uluru (Wikipedia)\".",
+          "$ref": "#/$defs/text"
+        },
+        "url": {
+          "description": "The address, https only. Check that it opens the page you mean.",
+          "type": "string",
+          "pattern": "^https://[^\\s]+$"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "description": "The source, e.g. the article or book.",
+          "$ref": "#/$defs/text"
+        },
+        "url": {
+          "description": "Its address, if it is on the web; https only.",
+          "type": "string",
+          "pattern": "^https://[^\\s]+$"
+        }
+      }
+    }
+  }
+}

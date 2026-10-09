@@ -1,3 +1,3 @@
-import { quizTests } from "@lernapps/tooling/quiz/e2e";
+import { quizTests } from "@lernapps/app-templates/quiz/e2e";
 
 quizTests();
