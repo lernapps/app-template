@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://lernapps.net/tooling/schemas/quiz.v1.schema.json",
   "title": "Question bank of a lernapps quiz",
-  "description": "The questions of a quiz built from the archetype quiz of @lernapps/tooling, in src/quiz.json: a quiz about things to know. Each option carries short background knowledge, each question links to further reading. The build validates the bank against this schema and fails with a message naming each problem. Every text is for learners: German, plain language, in your own words.",
+  "description": "The questions of a quiz built from the archetype quiz (runtime @lernapps/app-templates), in src/quiz.json: a quiz about things to know. Each option carries short background knowledge, each question links to further reading. The build validates the bank against this schema and fails with a message naming each problem. Every text is for learners: German, plain language, in your own words.",
   "type": "object",
   "additionalProperties": false,
   "required": ["title", "intro", "questions"],
