@@ -1,19 +1,36 @@
-# app-template
+# app-templates
 
-Template for a new lernapps.net learning app: a minimal static, frontend-only app with a license, the
-header and footer of lernapps.net (the shared site frame `@lernapps/site` from
-[lernapps.github.io](https://github.com/lernapps/lernapps.github.io/tree/main/site-frame)) and the same build,
-check and deploy as every other site (the site actions in [tooling](https://github.com/lernapps/tooling)).
-Once it runs, the app is listed in the app overview: one entry in
-[lernapps/apps](https://github.com/lernapps/apps) (<https://lernapps.net/apps/eintragen/>).
+The templates of the archetypes of lernapps.net apps, one folder per archetype. The generator of
+[lernapps/tooling](https://github.com/lernapps/tooling) copies a folder into a new app:
 
-It serves the platform design's guidance for creators (D6 `s-building-guidance`, "Agent guidance and starter
-templates" in D1): apps made from it run in the browser only, need no installation or sign-up, and collect
-nothing. Agents read the design with the skill [`skills/pdt`](https://github.com/lernapps/docs/tree/main/skills/pdt)
-in lernapps/docs.
+```bash
+npx --package github:lernapps/tooling lernapps create --archetype quiz
+```
 
-Nothing here yet. The plan is in [ORGANIZATION.md](https://github.com/lernapps/.github/blob/main/ORGANIZATION.md).
+It reads this repo at the commit pinned in `@lernapps/tooling` (`appTemplates` in its `package.json`), so templates
+and presets change together, and adds what every app has: `AGENTS.md`, the plan file, the workflows, LICENSE and an
+issue form for content errors. The logic stays in the package; a template holds only the thin files that refer to
+the archetype's preset and the app's own content.
+
+| Folder | Archetype | What the app supplies |
+|---|---|---|
+| [`quiz/`](quiz/) | a quiz: questions with options, feedback, score and solutions, readable without JavaScript | the question bank `src/quiz.json` ([schema](https://lernapps.net/tooling/schemas/quiz.v1.schema.json)) |
+
+Each folder is a working app that passes `lernapps check` (workflow `check.yml`), and can be tried on its own:
+
+```bash
+cd quiz
+npm ci
+npm run dev        # the app at http://localhost:5173/
+npx lernapps check # what the git hooks and CI run
+```
+
+A change to a template reaches new apps once the pin in lernapps/tooling moves to its commit on `main`. Renovate
+(preset `github>lernapps/tooling`) keeps `@lernapps/tooling` in the templates current.
+
+The architecture of the tooling, including the archetypes and the generator, is at
+<https://lernapps.net/tooling/architecture/>; the rules for apps at <https://lernapps.net/tooling/rules/>.
 
 ## License
 
-[MIT](LICENSE). Apps created from this template start with MIT as well.
+[MIT](LICENSE). Apps created from these templates start with MIT as well.
